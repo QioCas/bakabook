@@ -1,45 +1,68 @@
-struct Line {
-	ll m, b;
-	Line(ll _m = 0, ll _b = INF * 8) : m(_m), b(_b) {}
-};
+// f = a * x + b
+// update(l, r, f)
+// query(pos)
 
-ll F(Line l, ll x) {
-	return l.m * x + l.b;
-}
-struct lichao_t {
-	lichao_t *left = nullptr, *right = nullptr;
-	Line mn;
-	lichao_t(ll tl = 0, ll tr = 0) {}
-	void Update(ll tl, ll tr, Line nLine) {
-		ll mid = (tl + tr) >> 1;
-		bool pLeft = (F(nLine, tl) < F(mn, tl));
-		bool pMid = (F(nLine, mid) < F(mn, mid));
-		if (pMid)
-			swap(mn, nLine);
-		if (tl == tr)
-			return;
-		if (pLeft != pMid) {
-			if (left == nullptr)
-				left = new lichao_t();
-			left->Update(tl, mid, nLine);
-		} else {
-			if (right == nullptr)
-				right = new lichao_t();
-			right->Update(mid + 1, tr, nLine);
-		}
-	}
-	ll Query(ll tl, ll tr, ll x) {
-		if (tl == tr)
-			return F(mn, x);
-		ll mid = (tl + tr) >> 1;
-		ll res = F(mn, x);
-		if (x <= mid) {
-			if (left != nullptr)
-				minimize(res, left->Query(tl, mid, x));
-		} else {
-			if (right != nullptr)
-				minimize(res, right->Query(mid + 1, tr, x));
-		}
-		return res;
-	}
+struct liChao {
+    vector<line> tr;
+
+    liChao() {
+    }
+    liChao(int sz) : tr(4 * sz, line(0, LLONG_MAX)) {
+    }
+
+    void addLine(line f, int k, int l, int r) {
+        /*
+            f: đường thẳng cần cập nhật
+            k: nút hiện tại
+            l..r: khoảng mà nút quản lý
+        */
+        if (l == r) {
+            tr[k] = (f.calc(l) < tr[k].calc(l) ? f : tr[k]);
+            return;
+        }
+        int mid = (l + r) >> 1;
+        if (f.calc(mid) < tr[k].calc(mid))
+            swap(tr[k], f);
+        if (f.slope() > tr[k].slope())
+            addLine(f, 2 * k, l, mid); // trường hợp 1.1
+        if (f.slope() < tr[k].slope())
+            addLine(f, 2 * k + 1, mid + 1, r); // trường hợp 1.2
+    }
+
+    void update(int a, int b, line f, int k, int l, int r) {
+        /*
+            a..b: khoảng cần cập nhật
+            f: đường thẳng cần nhập nhật
+            k: nút hiện tại
+            l..r: khoảng mà nút quản lý
+        */
+        if (b < l || r < a)
+            return;
+
+        // thực hiện thao tác cập nhật của Li-chao tree cơ bản
+        // khi khoảng mà nút quản lý nằm gọn trong khoảng cần cập nhật
+        if (a <= l && r <= b)
+            return addLine(f, k, l, r), void();
+
+        // chia để trị tương tự Segment tree
+        int mid = (l + r) >> 1;
+        update(a, b, f, 2 * k, l, mid);
+        update(a, b, f, 2 * k + 1, mid + 1, r);
+    }
+
+    ll query(int pos, int k, int l, int r) {
+        /*
+            pos: vị trí được truy vấn
+            k: nút hiện tại
+            l..r: khoảng mà nút quản lý
+        */
+        ll cur = tr[k].calc(pos);
+        int mid = (l + r) >> 1;
+        if (l == r)
+            return cur;
+        if (pos <= mid)
+            return min(cur, query(pos, 2 * k, l, mid));
+        else
+            return min(cur, query(pos, 2 * k + 1, mid + 1, r));
+    }
 };
