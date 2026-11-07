@@ -1,0 +1,297 @@
+\section{Math Extra}
+
+\subsection{Combinatorial formulas}
+
+\begin{align*}
+\sum_{k=0}^{n}1 &= n+1\\
+\sum_{k=0}^{n}k &= \frac{n(n+1)}{2}\\
+\sum_{k=0}^{n}k^2 &= \frac{n(n+1)(2n+1)}{6}\\
+\sum_{k=0}^{n}k^3 &= \frac{n^2(n+1)^2}{4}\\
+\sum_{k=0}^{n}k^4 &= \frac{6n^5+15n^4+10n^3-n}{30}\\
+\sum_{k=0}^{n}k^5 &= \frac{2n^6+6n^5+5n^4-n^2}{12}\\
+\sum_{k=0}^{n}k^6 &= \frac{n(n+1)(2n+1)(3n^4+6n^3-3n+1)}{42}\\
+\sum_{k=0}^{n}k^7 &= \frac{n^2(n+1)^2(3n^4+6n^3-n^2-4n+2)}{24}\\
+\sum_{k=1}^{n}(2k-1) &= n^2\\
+\sum_{k=1}^{n}(2k-1)^2 &= \frac{n(4n^2-1)}{3}\\
+\sum_{k=1}^{n}k(k+1) &= \frac{n(n+1)(n+2)}{3}\\
+\sum_{k=1}^{n}k(k+1)(k+2) &= \frac{n(n+1)(n+2)(n+3)}{4}
+\end{align*}
+
+\begin{align*}
+\sum_{k=0}^{n}x^k &= \frac{x^{n+1}-1}{x-1},\quad x\ne1\\
+\sum_{k=0}^{n}kx^k
+&= \frac{x-(n+1)x^{n+1}+nx^{n+2}}{(1-x)^2},\quad x\ne1\\
+\sum_{k=0}^{n}k2^k &= (n-1)2^{n+1}+2\\
+\sum_{k=0}^{n}k^2 2^k &= (n^2-2n+3)2^{n+1}-6\\
+\sum_{k=0}^{\infty}x^k &= \frac{1}{1-x},\quad |x|<1\\
+\sum_{k=0}^{\infty}kx^k &= \frac{x}{(1-x)^2},\quad |x|<1\\
+\sum_{k=0}^{\infty}k^2x^k &= \frac{x(1+x)}{(1-x)^3},\quad |x|<1\\
+\sum_{k=0}^{\infty}k^3x^k &= \frac{x(1+4x+x^2)}{(1-x)^4},\quad |x|<1\\
+\sum_{k=0}^{\infty}\binom{r+k-1}{k}x^k
+&= \frac{1}{(1-x)^r},\quad |x|<1,\ r\ge1
+\end{align*}
+
+\begin{align*}
+\binom{n}{k} &= \frac{n!}{(n-k)!k!}\\
+\binom{n}{k} &= \binom{n}{n-k}\\
+\binom{n}{k} &= \binom{n-1}{k}+\binom{n-1}{k-1}\\
+\binom{n}{k} &= \frac{n}{n-k}\binom{n-1}{k},\quad k<n\\
+\binom{n}{k} &= \frac{n-k+1}{k}\binom{n}{k-1},\quad k\ge1\\
+\binom{n+1}{k} &= \frac{n+1}{n-k+1}\binom{n}{k},\quad k\le n\\
+\binom{n}{k+1} &= \frac{n-k}{k+1}\binom{n}{k}\\
+\binom{n}{k} &= \prod_{i=1}^{k}\frac{n-k+i}{i}\\
+k\binom{n}{k} &= n\binom{n-1}{k-1}\\
+(n-k)\binom{n}{k} &= n\binom{n-1}{k}\\
+\binom{n}{k}\binom{k}{r}
+&= \binom{n}{r}\binom{n-r}{k-r}\\
+\binom{n}{k}\binom{n-k}{r}
+&= \binom{n}{r}\binom{n-r}{k}\\
+\binom{n}{k}\binom{k}{r}
+&= \binom{n}{k-r}\binom{n-k+r}{r}
+\end{align*}
+
+\begin{align*}
+\sum_{k=0}^{n}\binom{n}{k} &= 2^n\\
+\sum_{k=0}^{n}(-1)^k\binom{n}{k} &= 0,\quad n\ge1\\
+\sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k} &= (x+y)^n\\
+\sum_{k=0}^{n}(-1)^k\binom{n}{k}x^k &= (1-x)^n\\
+\sum_{k=0}^{n}k\binom{n}{k} &= n2^{n-1}\\
+\sum_{k=0}^{n}k^2\binom{n}{k} &= n(n+1)2^{n-2}\\
+\sum_{k=0}^{n}k^3\binom{n}{k} &= n^2(n+3)2^{n-3}\\
+\sum_{k=0}^{n}k(k-1)\binom{n}{k}
+&= n(n-1)2^{n-2}\\
+\sum_{k=0}^{n}k(k-1)(k-2)\binom{n}{k}
+&= n(n-1)(n-2)2^{n-3}\\
+\sum_{k=0}^{n}(-1)^kk\binom{n}{k}
+&= 0,\quad n\ge2\\
+\sum_{k=0}^{n}(-1)^kk^m\binom{n}{k}
+&= 0,\quad 0\le m<n\\
+\sum_{k=0}^{n}(-1)^kk^m\binom{n}{k}
+&= (-1)^nn!\left\{{m\atop n}\right\}\\
+\sum_{k=0}^{n}\binom{n}{k}^2
+&= \binom{2n}{n}\\
+\sum_{k=0}^{n}\binom{n}{k}\binom{n}{k+r}
+&= \binom{2n}{n+r}\\
+\sum_{k=0}^{r}\binom{m}{k}\binom{n}{r-k}
+&= \binom{m+n}{r}\\
+\sum_{k=r}^{n}\binom{k}{r}
+&= \binom{n+1}{r+1}\\
+\sum_{k=0}^{n}\binom{r+k}{r}
+&= \binom{n+r+1}{r+1}\\
+\sum_{k=0}^{n}\binom{n}{k}\binom{k}{r}
+&= \binom{n}{r}2^{n-r}\\
+\sum_{k=0}^{n}\frac{(-1)^k}{k+1}\binom{n}{k}
+&= \frac{1}{n+1}\\
+\sum_{k=1}^{n}\frac{(-1)^{k+1}}{k}\binom{n}{k}
+&= H_n\\
+\sum_{\substack{0\le k\le n\\k\text{ even}}}\binom{n}{k}
+&= 2^{n-1},\quad n\ge1\\
+\sum_{\substack{0\le k\le n\\k\text{ odd}}}\binom{n}{k}
+&= 2^{n-1},\quad n\ge1
+\end{align*}
+
+\begin{align*}
+P(n,k) &= \frac{n!}{(n-k)!}\\
+\binom{n}{k_1,k_2,\ldots,k_r}
+&= \frac{n!}{k_1!k_2!\cdots k_r!},
+\quad \sum_{i=1}^{r}k_i=n\\
+(x_1+x_2+\cdots+x_r)^n
+&= \sum_{\substack{k_1+\cdots+k_r=n\\k_i\ge0}}
+\frac{n!}{k_1!\cdots k_r!}
+\prod_{i=1}^{r}x_i^{k_i}\\
+\#\{x_1+\cdots+x_k=n,\ x_i\ge0\}
+&= \binom{n+k-1}{k-1},\quad k\ge1\\
+\#\{x_1+\cdots+x_k=n,\ x_i\ge1\}
+&= \binom{n-1}{k-1},\quad n\ge k\ge1\\
+\#\{x_1+\cdots+x_k\le n,\ x_i\ge0\}
+&= \binom{n+k}{k}\\
+\#\{(x_1,\ldots,x_k):0\le x_i\le m\}
+&= (m+1)^k
+\end{align*}
+
+\subsection{Number theory identities}
+
+\begin{align*}
+\gcd(a,b)\operatorname{lcm}(a,b) &= |ab|\\
+\gcd(a,b) &= \gcd(b,a\bmod b),\quad b\ne0\\
+\gcd(a,b) &= \gcd(a,b+ka)\\
+\gcd(ka,kb) &= |k|\gcd(a,b),\quad k\ne0\\
+\gcd(a,b,c) &= \gcd(\gcd(a,b),c)\\
+\gcd(a,b) &= ax+by,\quad x,y\in\mathbb Z
+\text{ for suitable }x,y\\
+a\mid bc,\ \gcd(a,b)=1 &\implies a\mid c\\
+a\mid b,\ b\mid c &\implies a\mid c\\
+a\equiv b\pmod m &\iff m\mid(a-b)\\
+a\equiv b\pmod m &\implies
+a^k\equiv b^k\pmod m,\quad k\ge0\\
+(a+b)\bmod m
+&= ((a\bmod m)+(b\bmod m))\bmod m\\
+(ab)\bmod m
+&= ((a\bmod m)(b\bmod m))\bmod m\\
+a^{p-1} &\equiv1\pmod p,\quad p\text{ prime},\ p\nmid a\\
+a^p &\equiv a\pmod p,\quad p\text{ prime}\\
+a^{\varphi(m)} &\equiv1\pmod m,\quad\gcd(a,m)=1\\
+a^{-1} &\equiv a^{p-2}\pmod p,\quad p\text{ prime},\ p\nmid a\\
+a^{-1} &\equiv a^{\varphi(m)-1}\pmod m,\quad\gcd(a,m)=1\\
+(p-1)! &\equiv -1\pmod p,\quad p\text{ prime}\\
+(a+b)^p &\equiv a^p+b^p\pmod p,\quad p\text{ prime}
+\end{align*}
+
+\begin{align*}
+\varphi(n)
+&= n\prod_{p\mid n}\left(1-\frac1p\right)\\
+\varphi(p^k)
+&= p^k-p^{k-1},\quad p\text{ prime},\ k\ge1\\
+\varphi(ab)
+&= \varphi(a)\varphi(b),\quad\gcd(a,b)=1\\
+\sum_{d\mid n}\varphi(d)
+&= n\\
+\varphi(n)
+&= \sum_{d\mid n}\mu(d)\frac nd\\
+\sum_{d\mid n}\mu(d)
+&= \begin{cases}1,&n=1\\0,&n>1\end{cases}\\
+\mu(n)
+&= \begin{cases}
+1,&n=1\\
+(-1)^r,&n=p_1p_2\cdots p_r,\ p_i\text{ distinct primes}\\
+0,&p^2\mid n\text{ for some prime }p
+\end{cases}\\
+\sum_{d\mid n}\mu(d)f(n/d)
+&= g(n)
+\iff
+f(n)=\sum_{d\mid n}g(d)\\
+\tau(n)
+&= \prod_{i=1}^{r}(a_i+1),
+\quad n=\prod_{i=1}^{r}p_i^{a_i}\\
+\sigma(n)
+&= \prod_{i=1}^{r}
+\frac{p_i^{a_i+1}-1}{p_i-1}\\
+\sigma_k(n)
+&= \sum_{d\mid n}d^k\\
+\sigma_k(n)
+&= \prod_{i=1}^{r}
+\frac{p_i^{k(a_i+1)}-1}{p_i^k-1},
+\quad k\ge1\\
+\sum_{k=1}^{n}\left\lfloor\frac nk\right\rfloor
+&= \sum_{k=1}^{n}\tau(k)\\
+\sum_{k=1}^{n}\gcd(k,n)
+&= \sum_{d\mid n}d\varphi(n/d)\\
+\sum_{k=1}^{n}\left\lfloor\frac nk\right\rfloor
+&= 2\sum_{k=1}^{\lfloor\sqrt n\rfloor}
+\left\lfloor\frac nk\right\rfloor
+-\lfloor\sqrt n\rfloor^2
+\end{align*}
+
+\begin{align*}
+v_p(n!)
+&= \sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^k}\right\rfloor,
+\quad p\text{ prime}\\
+v_p\left(\binom nk\right)
+&= v_p(n!)-v_p(k!)-v_p((n-k)!)\\
+v_p(ab)&=v_p(a)+v_p(b)\\
+v_p(a^k)&=kv_p(a)\\
+n!
+&= \prod_{p\le n}p^{v_p(n!)}\\
+\gcd(F_m,F_n)&=F_{\gcd(m,n)}\\
+\operatorname{lcm}(1,2,\ldots,n)
+&= \prod_{p\le n}p^{\lfloor\log_p n\rfloor}
+\end{align*}
+
+Lucas' Theorem
+
+\begin{align*}
+m &= \sum_{i=0}^{r}m_ip^i\\
+n &= \sum_{i=0}^{r}n_ip^i\\
+\binom mn
+&\equiv \prod_{i=0}^{r}\binom{m_i}{n_i}\pmod p,
+\quad p\text{ prime}\\
+\binom{p^r-1}{k}
+&\equiv(-1)^k\pmod p,\quad 0\le k<p^r\\
+v_p\left(\binom mn\right)
+&= \text{number of carries in adding }n\text{ and }m-n
+\text{ in base }p
+\end{align*}
+
+
+
+\subsection{Fibonacci Identities}
+
+\begin{align*}
+F_0&=0,\quad F_1=1\\
+F_{n+2}&=F_{n+1}+F_n\\
+F_n&=\frac{\varphi^n-\psi^n}{\sqrt5}\\
+\varphi&=\frac{1+\sqrt5}{2},
+\quad\psi=\frac{1-\sqrt5}{2}\\
+\sum_{k=0}^{n}F_k&=F_{n+2}-1\\
+\sum_{k=0}^{n}F_k^2&=F_nF_{n+1}\\
+\sum_{k=1}^{n}F_{2k-1}&=F_{2n}\\
+\sum_{k=1}^{n}F_{2k}&=F_{2n+1}-1\\
+F_{m+n}&=F_mF_{n+1}+F_{m-1}F_n,
+\quad m\ge1\\
+F_{2n}&=F_n(2F_{n+1}-F_n)\\
+F_{2n+1}&=F_{n+1}^2+F_n^2\\
+F_{n+1}F_{n-1}-F_n^2&=(-1)^n,\quad n\ge1\\
+F_{n+1}F_n-F_nF_{n-1}&=F_nF_{n-2},
+\quad n\ge2\\
+F_{n+1}F_{n-1}-F_n^2&=(-1)^n\\
+\gcd(F_m,F_n)&=F_{\gcd(m,n)}\\
+F_n^2+F_{n+1}^2&=F_{2n+1}\\
+F_{n+1}F_m-F_nF_{m+1}
+&=(-1)^nF_{m-n},
+\quad m\ge n\\
+\sum_{n=0}^{\infty}F_nx^n
+&=\frac{x}{1-x-x^2},
+\quad |x|<\frac{\sqrt5-1}{2}
+\end{align*}
+
+
+
+\subsection{Probability and Statistics}
+
+\begin{align*}
+P(A^c)&=1-P(A)\\
+P(A\cup B)&=P(A)+P(B)-P(A\cap B)\\
+P(A\mid B)&=\frac{P(A\cap B)}{P(B)},\quad P(B)>0\\
+P(A\cap B)&=P(A\mid B)P(B)\\
+P(A\cap B)&=P(A)P(B),\quad A,B\text{ independent}\\
+P(A)&=\sum_{i=1}^{n}P(A\mid B_i)P(B_i)\\
+P(B_j\mid A)
+&=\frac{P(A\mid B_j)P(B_j)}
+{\sum_iP(A\mid B_i)P(B_i)}\\
+P\left(\bigcup_{i=1}^{n}A_i\right)
+&\le\sum_{i=1}^{n}P(A_i)\\
+P\left(\bigcap_{i=1}^{n}A_i\right)
+&=\prod_{i=1}^{n}P(A_i),
+\quad A_i\text{ mutually independent}
+\end{align*}
+
+\begin{align*}
+E[X]&=\sum_x xP(X=x)\\
+E[g(X)]&=\sum_x g(x)P(X=x)\\
+E[aX+b]&=aE[X]+b\\
+E[X+Y]&=E[X]+E[Y]\\
+E[XY]&=E[X]E[Y],\quad X,Y\text{ independent}\\
+\operatorname{Var}(X)
+&=E[(X-E[X])^2]\\
+\operatorname{Var}(X)
+&=E[X^2]-E[X]^2\\
+\operatorname{Var}(aX+b)
+&=a^2\operatorname{Var}(X)\\
+\operatorname{Var}(X+Y)
+&=\operatorname{Var}(X)+\operatorname{Var}(Y)
++2\operatorname{Cov}(X,Y)\\
+\operatorname{Var}(X+Y)
+&=\operatorname{Var}(X)+\operatorname{Var}(Y),
+\quad X,Y\text{ independent}\\
+\operatorname{Cov}(X,Y)
+&=E[XY]-E[X]E[Y]\\
+\rho_{X,Y}
+&=\frac{\operatorname{Cov}(X,Y)}
+{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}\\
+E[X]&=E[E[X\mid Y]]\\
+\operatorname{Var}(X)
+&=E[\operatorname{Var}(X\mid Y)]
++\operatorname{Var}(E[X\mid Y])\\
+E[X]&=\sum_{k=1}^{\infty}P(X\ge k),
+\quad X\in\{0,1,2,\ldots\}
+\end{align*}
